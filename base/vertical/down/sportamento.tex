@@ -1,0 +1,37 @@
+\subsubsection{Расчёт высоты:}
+
+\paragraph{Интегрирование:}
+
+$$\eta = -s + C_\downarrow;$$
+
+$$s= C_\downarrow-\eta;$$
+
+$$t = \tau \left ( C_\downarrow-\eta \right );$$
+
+$$dt = - \tau d\eta.$$
+
+$$z = \int V_z dt;$$
+
+$$z = V_\downarrow \int U_z dt + V_{a,z}t;$$
+
+$$z = V_\downarrow \int th \eta dt + V_{a,z}t;$$
+
+$$\int th \eta dt = -\tau \int th \eta d\eta = =\tau ln \left ( ch \eta \right ) + C;$$
+
+$$z = - \chi ln \left ( ch \eta \right ) + V_{a,z}t + C;$$
+
+\paragraph{Поиск константы:}
+
+$$z_{max} = -\chi ln \left ( ch \eta(0) \right ) + V_{a,z}t_{max} + C;$$
+
+$$C = z_{max} + \chi ln \left ( ch \eta(0) \right ) - V_{a,z}t_{max}.$$
+
+\paragraph{Расчётная формула:}
+
+$$z = - \chi ln \left ( ch \eta \right ) + V_{a,z}t + z_{max} + \chi ln \left ( ch \eta(0) \right ) - V_{a,z}t_{max};$$
+
+$$z = \chi \left ( ln \left ( ch \eta(0) \right ) - ln \left ( ch \eta \right ) \right ) + V_{a,z}(t - t_{max}) + z_{max};$$
+
+$$\boxed{
+z = \chi ln \frac{ch \eta(0)}{ch \eta} + V_{a,z}(t - t_{max}) + z_{max}.
+}$$

@@ -1,0 +1,15 @@
+/sq {
+	dup mul
+} bind def
+
+/sign {
+	dup
+	0 ne
+	{
+		0 le
+		{-1}{1}
+		ifelse
+	}
+	{0}
+	ifelse
+} bind def

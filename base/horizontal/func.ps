@@ -1,0 +1,88 @@
+% [x]
+/sign {
+	dup
+	0 ne
+	{
+		0 le
+		{-1}{1}
+		ifelse
+	}
+	{0}
+	ifelse
+} def
+
+
+%[Ux, Uax, s]
+/horizontal {
+	3 dict begin
+		/s exch def
+		/Uax exch def
+		/Ux exch def
+		Ux sign
+		1 s Ux abs mul add
+		ln
+		mul
+		Uax s mul
+		add
+	end
+} def
+%[Rox]
+
+%[x, y, z]
+/vector {
+	3 dict begin
+		/z exch def
+		/y exch def
+		/x exch def
+		currentdict
+	end
+} def
+%[dict{x,y,z}]
+
+%[U, Ua, s]
+/calc2dRo {
+	3 index begin
+		%dict U
+		y x
+	end
+	%[U, Ua, s, Uy, Ux]
+	4 index begin
+		%dict Ua
+		y
+		%[U, Ua, s, Uy, Ux, Uay]
+		exch
+		%[U, Ua, s, Uy, Uay, Ux]
+		x
+	end
+	%[U, Ua, s, Uy, Uay, Ux, Uax]
+	5 index
+	%[U, Ua, s, Uy, Uay, Ux, Uax, s]
+	horizontal
+	%[U, Ua, s, Uy, Uay, Rox]
+	3 1 roll
+	%[U, Ua, s, Rox, Uy, Uay]
+	4 -1 roll
+	%[U, Ua, Rox, Uy, Uay, s]
+	horizontal
+	%[U, Ua, Rox, Roy]
+} def
+%[U, Ua, Ro]
+
+%[U, Ua, smax, step]
+/renderHor {
+	newpath 
+	0 0
+	moveto
+	
+	dup 
+	%[U, Ua, smax, step, step]
+	3 -1 roll
+	%[U, Ua, step, step, smax]
+	{
+		calc2dRo
+		lineto
+	}
+	stroke
+}
+
+showpage

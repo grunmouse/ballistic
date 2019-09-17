@@ -1,0 +1,55 @@
+\subsubsection{Расчёт скорости}
+
+\paragraph{Интегрирование}
+
+$$\frac{dU_z}{U_z^2-1} = ds;$$
+
+$$\int \frac{dU_z}{U_z^2-1} = \int ds;$$
+
+$$\int ds = s + C;$$
+
+$$\int \frac{dU_z}{U_z^2-1} = \frac{1}{2}ln \left | \frac{U_z -1}{U_z + 1} \right | + C;$$
+
+$$U_z<1 \Rightarrow U_z-1<0;$$
+
+$$\left | \frac{U_z -1}{U_z + 1} \right | = -\frac{U_z -1}{U_z + 1} = \frac{1 - U_z}{U_z + 1};$$
+
+$$\frac{1}{2}ln \frac{1 - U_z}{U_z + 1} = - \frac{1}{2}ln \frac{1+U_z}{1 - U_z} = -arth U_z;$$
+
+$$\int \frac{dU_z}{U_z^2-1} =  -arth U_z + C;$$
+
+$$-arth U_z + C = s;$$
+
+\paragraph{Введём функции:}
+
+$$\eta(V_z) = arth U_z;$$
+
+$$U_z = th \eta. $$
+
+$$-\eta + C = s.$$
+
+Обозначим константу $C=C_\downarrow$ - она нам ещё пригодится.
+
+$$-\eta + C_\downarrow = s.$$
+
+$$\eta = -s + C_\downarrow.$$
+
+\paragraph{Поиск константы:}
+
+$$\eta(0) = - s_{max} + C_\downarrow;$$
+
+$$C_\downarrow = \eta(0) + s_{max};$$
+
+$$C_\downarrow = \eta(0) + \nu_{0} - \nu(0).$$
+
+\paragraph{Расчётные формулы}
+
+$$C_\downarrow = \eta(0) + \nu_{0} - \nu(0).$$
+
+$$\eta = -s + C_\downarrow.$$
+
+$$V_z = U_z V_\downarrow + V_{a,z}.$$
+
+$$U_z = th \eta. $$
+
+$$V_z =  V_\downarrow \th \eta  + V_{a,z}.$$

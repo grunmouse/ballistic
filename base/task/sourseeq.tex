@@ -1,0 +1,66 @@
+\subsection{Основные формулы}
+
+\paragraph{}Сила лобового сопротивления
+$$ F=\frac{c_{x}V^{2}}{2}\rho S. $$
+
+\paragraph{}Сила тяжести
+$$ F = mg. $$
+
+\subsection{Расчитываемые через них константы}
+\subsubsection{}
+Скорость пикирования
+
+$$V_{\downarrow}=\sqrt{\frac{2mg}{c_{x} \rho S}};$$
+- константа для данного снаряда при данной плотности атмосферы
+
+Легко видеть, что 
+$$V_{\downarrow}=\sqrt{2} \cdot \sqrt{\frac{m}{c_{x} S}} \cdot \sqrt{\frac{g}{\rho}}$$
+
+Обозначим 
+$$k_c = \sqrt{\frac{m}{c_{x} S}} \left [ =\frac{\sqrt{\mbox{кг}}}{\mbox{м}} \right ]$$
+- константа снаряда
+
+Тогда как $$\sqrt{\frac{g}{\rho}} \left [ =\frac{\mbox{м}^2}{\mbox{с}\sqrt{\mbox{кг}}} \right ]$$ является константой условий стрельбы, не зависящей от свойств снаряда.
+
+$$k_A = \frac{c_x \rho S}{2} \left [ =\frac{\mbox{кг}}{\mbox{м}} \right ];$$
+- отношение лобового сопротивления к квадрату воздушной скорости снаряда.
+
+$$\Rightarrow F = k_A V^2.$$
+
+\subsubsection{Взаимосвязь констант}
+
+$$V_{\downarrow}=k_c \sqrt{\frac{2g}{\rho}};$$
+$$V_{\downarrow}= \sqrt{\frac{mg}{k_A}};$$
+
+\subsubsection{Константы масштаба}
+Основными константами масштаба выбраны $V_\downarrow$ - машстаб скорости и $g$ - масштаб ускорения.
+Через них можно рассчитать:
+$$\tau = \frac{V_\downarrow}{g}\left [=\mbox{с} \right ];$$
+- машстаб времени;
+
+$$\chi = V_\downarrow \tau [=\mbox{м}]$$ 
+- машстаб координаты.
+
+$$\chi = \frac{V_\downarrow^2}{g}.$$
+
+
+\subsection{Введённые функции}
+
+$$\vec{U} = \frac{\vec{V}-\vec{V}_a}{V_\downarrow};$$
+- безразмерная воздушная скорость, масштабом является скорость пикирования.
+
+$$\vec{\vartheta} = \frac{\vec{V}}{V_\downarrow};$$
+-безразмерная скорость
+
+$$\vec{\vartheta}_a = \frac{\vec{V}_a}{V_\downarrow};$$
+-безразмерная скорость ветра.
+
+$$\vec{U} = \vec{\vartheta} - \vec{\vartheta}_a.$$
+
+$$s = \frac{t}{\tau};$$
+- безразмерное время
+
+$$\diff{s} = \frac{\diff{t}}{\tau}$$
+
+$$\vec{\Rho} = \frac{\vec{r}}{\chi} = \frac{x\vec{i}+y\vec{j}+z\vec{k}}{\chi}$$
+- безразмерное перемещение.

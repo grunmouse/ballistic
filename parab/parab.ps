@@ -1,0 +1,120 @@
+/g 9.81 def
+
+/tg {
+	dup sin exch cos div
+} bind def
+
+/sq {
+	dup mul
+} bind def
+
+%V0 theta t
+/parab_Vz {
+	/t exch def
+	/theta exch def
+	/V0 exch def
+	
+	theta sin
+	V0 mul
+	t g mul
+	sub
+} def
+
+%V0 theta t
+/parab_Vx {
+	/t exch def
+	/theta exch def
+	/V0 exch def
+	
+	theta cos
+	V0 mul
+} def
+
+%V0 theta t
+/parab_x {
+	/t exch def
+	/theta exch def
+	/V0 exch def
+	
+	theta cos
+	V0 mul
+	t mul
+} def
+
+%V0 theta t
+/parab_z {
+	/t exch def
+	/theta exch def
+	/V0 exch def
+	
+	theta sin
+	V0 mul
+	t mul
+	g t t mul mul
+	sub
+} def
+
+%V0 theta t
+/parab_theta {
+	/t exch def
+	/theta exch def
+	/V0 exch def
+	
+	theta tg
+	g t mul
+	V0 theta cos mul
+	div
+	sub
+} def
+
+%V0 theta 
+/parab_tC {
+	/theta exch def
+	/V0 exch def
+	
+	2 V0 mul
+	theta sin mul
+	g div
+} def
+
+/parab_xC {
+	/theta exch def
+	/V0 exch def
+	
+	V0 V0 mul
+	2 theta mul sin mul
+	g div
+} def
+
+/parab_tetaC {
+	/theta exch def
+	/V0 exch def
+	
+	theta neg
+} def
+
+/parab_tZ {
+	/theta exch def
+	/V0 exch def
+	
+	V0
+	theta sin mul
+	g div
+} def
+
+
+/parab_xZ {
+	parab_xC
+	2
+	div
+} def
+
+/parab_zZ {
+	/theta exch def
+	/V0 exch def
+	
+	V0 sq
+	g div
+	theta sin sq 
+	mul
+} def

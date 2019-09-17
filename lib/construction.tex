@@ -1,0 +1,10 @@
+\usepackage{ifthen}
+\newcounter{f@rc@unter} 
+\newcommand{\forplus}[4][1]{% 
+	\setcounter{f@rc@unter}{#2}\ifthenelse{\value{f@rc@unter} < #3}{#4% 
+		\addtocounter{f@rc@unter}{#1}% 
+		\forplus[#1]{\value{f@rc@unter}}{#3}{#4}}{}} 
+		
+\def\iterator{\arabic{f@rc@unter}}
+
+\newcommand{\strrepeat}[2]{\loop{0}{#1}{#2}}

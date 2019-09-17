@@ -1,0 +1,150 @@
+\section{Подход к расчёту и порядок расчёта}
+
+\subsection{Исходные данные}
+
+
+\subsubsection{Данные снаряда:}
+
+$m [=\mbox{кг}]$ - масса,
+
+$S [=\mbox{м}^2]$ - площадь мидельного сечения (для шара $S = \pi R^2$),
+
+$c_x$ - коэффициент сопротивления (для шара $c_x = 0.47$).
+
+\subsubsection{Данные атмосферы:}
+
+$\rho [=\frac{\mbox{кг}}{\mbox{м}^3}]$ - плотность воздуха, 
+
+$\vec{V}_{a} = V_{a,x}\vec{i} + V_{a,x}\vec{j} + V_{a,z}\vec{k} [=\frac{\mbox{м}}{\mbox{с}}]$ - скорость ветра.
+
+\subsubsection{Параметры выстрела:}
+
+$\vec{V_0} = V_{x,0}\vec{i} + V_{y,0}\vec{j} + V_{z,0}\vec{k} [=\frac{\mbox{м}}{\mbox{с}}]$ - начальная скорость снаряда.
+
+$$V_{z,0} = V_0 \sin{\epsilon},$$
+$$V_{x,0} = V_0 \cos{\epsilon} \cos{\beta},$$
+$$V_{y,0} = V_0 \cos{\epsilon} \sin{\beta}.$$
+
+
+где $\epsilon$ - угол бросания, $\beta$ - угол горизонтальной наводки.
+
+$x_0$, $y_0$, $z_0$ - начальные координаты в принятой системе прямоугольных координат. $OZ$ направлена вверх.
+
+$z_{trg}$ - высота цели в принятой системе прямоугольных координат.
+
+\subsection{Используеме функции:}
+$$\vec{U} = \frac{\vec{V}-\vec{V}_a}{V_\downarrow};$$
+
+$$s = \frac{t}{\tau};$$
+
+$$\fnu{V_z} = \arctg{U_z};$$
+
+$$\nu = \nu_0 - s;$$
+
+$$\feta{V_z} = \arth{U_z};$$
+
+$$\eta = C_\downarrow - s;;$$
+
+$$\upsilon_x = \frac{1}{U_x};$$
+$$\upsilon_y = \frac{1}{U_y};$$
+
+\subsection{Подготовка констант:}
+
+\subsubsection{Константы условий стрельбы:}
+
+$$V_{\downarrow}=\sqrt{\frac{2mg}{c_{x} \rho S}};$$
+$$\tau =\frac{V_\downarrow}{g};$$
+$$\chi = V_\downarrow \tau;$$
+
+\subsubsection{Константы выстрела:}
+$$\upsilon_{x,0} = \frac{V_\downarrow}{V_{x,0} - V_{a,x}}$$
+$$\upsilon_{y,0} = \frac{V_\downarrow}{V_{y,0} - V_{a,y}}$$
+
+
+\begin{tabular}[t]{|p{80mm}|p{80mm}|}
+\hline
+Общий случай
+&
+Практический случай $V_{a,z}=0$
+\\ \hline
+
+$$\nu_{0} = \arctg{ \brkt{ \frac{V_{z,0} - V_{a,z}}{V_\downarrow} } };$$ 
+$$\nu_\uparrow = \fnu{0} = -\arctg{ \brkt{ \frac{V_{a,z}}{V_\downarrow} }};$$
+$$\eta_\uparrow = \feta{0} = -\arth{ \brkt{ \frac{V_{a,z}}{V_\downarrow} }};$$
+$$s_{max}= \nu_{0} - \fnu{0};$$
+$$t_{max}= \tau \brkt{ \nu_{0} - \fnu{0} };$$
+$$z_{max} = \chi \ln \brkt{ \frac{\cos \fnu{0}}{\cos \nu_{0}} } + V_{a,z}t_{max} + z_0;$$
+$$C_\downarrow = \feta{0} + \nu_0 - \fnu{0};$$
+&
+$$\nu_{0} = arctg \brkt{ \frac{V_{z,0}}{V_\downarrow} };$$
+$$\nu_\uparrow = \fnu{0} = 0;$$
+$$\eta_\uparrow = \feta{0} = 0;$$
+$$s_{max}= \nu_{0};$$
+$$t_{max}= \tau \nu_{0};$$
+$$z_{max} = - \chi \ln \brkt{ cos \nu_{0} } + z_0;$$ 
+$$C_\downarrow =  \nu_{0};$$
+\\
+\multicolumn{2}{|p{160mm}|}{
+	$$D_\downarrow = \frac{z_{max} - z_{trg}}{\chi};$$
+}
+\\
+$$ch \eta_{trg} = ch \feta{0} exp \brkt{D_\downarrow  -\frac{V_{a,z}t_{max}}{\chi} }.$$
+&
+$$ch \eta_{trg} = exp \brkt{ D_\downarrow }.$$
+\\
+\multicolumn{2}{|p{160mm}|}{
+	$$\eta_{trg} = - arch(ch \eta_{trg})$$
+}
+\\
+$$t_{trg} = \tau \brkt{ C_\downarrow - \eta_{trg} }.$$
+&
+$$t_{trg} = \tau \brkt{ \nu_0 - \eta_{trg} } \Rightarrow s_{trg} = \nu_0 - \eta_{trg}.$$
+\\ \hline
+\end{tabular}
+
+\subsection{Расчётные функции:}
+
+\begin{tabular}[t]{|l|p{60mm}|p{50mm}|}
+\hline
+&
+Общий случай
+&
+Практический случай $V_{a,z}=0$
+\\ \hline
+&
+&
+\\
+Скорость на участке $t \in [0; t_{max}]$ 
+& 
+$V_z = \tg{ \brkt{ \nu_{0} - s } } V_\downarrow + V_{a,z}.$
+&
+$V_z = \tg{ \brkt{ \nu_{0} - s } } V_\downarrow.$
+\\ 
+Скорость на участке $t \in [t_{max}, t_{trg}]$
+&
+$V_z =  \th {\brkt{ \nu_{0} - s + \feta{0} - \fnu{0}  } } V_\downarrow + V_{a,z}.$
+&
+$V_z =  \th {\brkt{ \nu_{0} - s  } } V_\downarrow.$
+\\ 
+Высота на участке $t \in [0; t_{max}]$
+&
+$z = \chi \ln{ \brkt{  \frac{\cos \nu}{\cos \nu_{0}}  }}  +  V_{a,z}t +  z_0.$
+&
+$z = \chi \ln{ \brkt{  \frac{\cos \nu}{\cos \nu_{0}}  }}  +  z_0.$
+
+\\ 
+Высота на участке $t \in [t_{max}, t_{trg}]$
+&
+$z = \chi \ln{ \frac{\ch \feta{0}}{\ch \eta} }+  V_{a,z}(t - t_{max})+ z_{max}.$
+&
+$z = - \chi \ln{(\ch \eta)} + z_{max}.$
+
+\\ \hline
+\end{tabular}
+
+$$V_x = \frac{V_\downarrow}{s + \upsilon_{x,0}} + V_{a,x};$$
+
+$$V_y = \frac{V_\downarrow}{s + \upsilon_{y,0}} + V_{a,y};$$
+
+$$x = \chi \ln{\brkt{sU_{x,0} + 1 } } + V_{a,x}t + x_0.$$
+$$y = \chi \ln{\brkt{sU_{y,0} + 1 } } + V_{a,y}t + y_0.$$

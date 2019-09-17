@@ -1,0 +1,27 @@
+\newcommand{\newstack}[1]{
+	\newcounter{#1}
+	\setcounter{#1}{0}
+	\expandafter\def\csname stack#1\alph{#1}\endcsname{floor}
+}
+
+\newcommand{\stackclear}[1]{
+	\setcounter{#1}{0}
+}
+
+\newcommand{\stacktop}[1]{\csname stack#1\alph{#1}\endcsname}
+
+\newcounter{stack@tmp}
+\newcommand{\stackget}[2]{\setcounter{stack@tmp}{#2}\csname stack#1\alph{stack@tmp}\endcsname}
+
+\newcommand{\stackpop}[1]{
+	\addtocounter{#1}{-1}
+}
+
+\newcommand{\stackpush}[2]{
+	\addtocounter{#1}{1}
+	\expandafter\def\csname stack#1\alph{#1}\endcsname%
+	{#2}
+	
+	\expandafter\def\csname stack#1last\endcsname{\detokenize{\csname stack#1\alph{#1}\endcsname}}
+}
+\newcommand{\stackjoin}[1]{\addtocounter{#1}{1}\forplus{1}{\csname the#1\endcsname}{\stackget{#1}{\iterator}}\addtocounter{#1}{-1}}

@@ -1,0 +1,30 @@
+\subsubsection{Вычисление времени падения:}
+
+Обозначим время достижения цели $t_{trg}$.
+
+Вертикальное перемещение воздушной массы за время полёта
+
+$$z_{a,trg} = V_{a,z}t_{trg}.$$
+
+Время полёта до точки превышающей цель на $z_{a,trg}$ (иначе не выводится аналитическая формула):
+
+$$z_{trg}-z_{max} + V_{a,z}t_{trg} = \chi ln \frac{ch \eta(0)}{ch \eta_{trg}} + V_{a,z}(t_{trg} - t_{max});$$
+
+$$z_{trg}-z_{max} = \chi ln \frac{ch \eta(0)}{ch \eta_{trg}} - V_{a,z}t_{max};$$
+
+Обозначим:
+$$\boxed{
+	D_\downarrow = \frac{z_{max} - z_{trg}}{\chi}.
+}$$
+Тогда
+$$-D_\downarrow + \frac{V_{a,z}t_{max}}{\chi} =ln \frac{ch \eta(0)}{ch \eta_{trg}};$$
+
+$$-D_\downarrow + \frac{V_{a,z}t_{max}}{\chi} =ln(ch \eta(0)) - ln(ch \eta_{trg});$$
+
+$$ln(ch \eta_{trg}) = ln(ch \eta(0)) - \left (-D_\downarrow + \frac{V_{a,z}t_{max}}{\chi} \right );$$
+
+$$ch \eta_{trg} = ch \eta(0) exp \left ( -\left (-D_\downarrow + \frac{V_{a,z}t_{max}}{\chi} \right ) \right );$$
+
+$$ch \eta_{trg} = ch \eta(0) exp \left ( D_\downarrow - \frac{V_{a,z}t_{max}}{\chi} \right ).$$
+
+$$t_{trg} = \tau \left ( C_\downarrow - \eta_{trg} \right ).$$

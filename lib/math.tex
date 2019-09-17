@@ -1,0 +1,34 @@
+\newcommand{\pdd}[2]{
+	\frac{\partial#1}{\partial#2}
+}
+\newcommand{\dd}[2]{
+	\frac{d#1}{d#2}
+}
+\newcommand{\diff}[1]{
+	d#1
+}
+
+\newcommand{\abs}[1]{
+	\left | #1 \right |
+}
+\newcommand{\brkt}[1]{
+	\left ( #1 \right )
+}
+
+%определяем функцию
+\newcommand{\deffn}[1]{
+	\expandafter\def\csname #1\endcsname{\mathrm{#1}}
+}
+
+
+%Имена функций
+\deffn{th}
+\deffn{arctg}
+\deffn{arth}
+\deffn{sign}
+\deffn{tg}
+\deffn{ch}
+\deffn{ln}
+
+%заплатки
+\def\Rho{\mathrm{P}}

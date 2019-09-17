@@ -1,0 +1,49 @@
+\section{Выведение уравнения теоретической кривой траектории}
+
+Теоретическая кривая описывает траекторию, возникающую в отсутствие ветра. Такая траектория - плоская, её удобно расположить в плоскости XZ.
+
+\subsection{t(x)}
+
+$$x = \chi \ln(sU_{x,0}+1) + V_{a,x} + x_0.$$
+
+В условиях отсутствия ветра: $V_{a,x} = 0$, $U_{x,0}=\frac{V_{x,0}}{V_\downarrow}$.
+
+Примем точку вылета за 0: $x_0 = 0$.
+
+$$x = \chi \ln(sU_{x,0}+1);$$
+
+$$\exp\frac{x}{\chi} = sU_{x,0}+1;$$
+
+$$\exp\frac{x}{\chi} - 1 = sU_{x,0};$$
+
+$$s = \frac{1}{U_{x,0}}\left ( \exp\frac{x}{\chi} - 1\right );$$
+
+$$s = \upsilon_{x,0} \left ( \exp\frac{x}{\chi} - 1\right );$$
+
+$$t = \frac{\tau V_\downarrow}{V_{x,0}}\left ( \exp\frac{x}{\chi} - 1\right );$$
+
+$$t = \frac{\chi}{V_{x,0}}\left ( \exp\frac{x}{\chi} - 1\right ).$$
+
+
+\subsection{z(x)}
+
+Время вершины траектории: $s_{max}= \nu_{0};$
+
+\subsubsection{Восходящий участок $s<s_{max}$}
+$$z = \chi ln \left (  \frac{\cos \nu}{\cos \nu_{0}}  \right )  +  z_0.$$
+
+$$\nu = \nu_0 - s;$$
+
+$$z = \chi ln \left (  \frac{\cos(\nu_0 - s)}{\cos \nu_{0}}  \right );$$
+
+$$z = \chi ln \left (  \frac{\cos \left(\nu_0 - \upsilon_{x,0} \left ( \exp\frac{x}{\chi} - 1\right ) \right )}{\cos \nu_{0}}  \right );$$
+$$z = \chi ln \cos \left (
+		\nu_0 - \upsilon_{x,0} \left ( \exp\frac{x}{\chi} - 1\right )  
+	\right )
+	- \chi ln \cos \nu_{0}.
+$$
+\subsubsection{Нисходящий участок $s>S_{max}$}
+
+$$z = -\chi \ln ch\eta + z_max;$$
+$$\eta = C_\downarrow - s;$$
+$$\eta = C_\downarrow - \upsilon_{x,0} \left ( \exp\frac{x}{\chi} - 1\right );$$

@@ -1,0 +1,22 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 200 200
+
+% epstopdf --NOSAFER test.eps
+
+(lib/math.ps) run
+(lib/graph.ps) run
+
+100 100 translate
+
+baseline
+
+0 0 -20 -20 showVector
+0 0 50 50 showVector
+
+0 0 50 0 showVector
+
+0 0 0 50 showVector
+
+0 0 0 -50 showVector
+
+%EOF

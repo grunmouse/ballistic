@@ -1,0 +1,81 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 567 567
+
+% epstopdf --NOSAFER parab.eps
+
+(lib/pt2mm.ps) run
+
+/textheight { 
+    gsave                                  % save graphic context
+    {                            
+        100 100 moveto                     % move to some point 
+        (HÍpg) true charpath pathbbox      % gets text path bounding box (LLx LLy URx URy)
+        exch pop 3 -1 roll pop             % keeps LLy and URy
+        exch sub                           % URy - LLy
+    }
+    stopped                                % did the last block fail?
+    {
+        pop pop                            % get rid of "stopped" junk
+        currentfont /FontMatrix get 3 get  % gets alternative text height
+    }
+    if
+    grestore                               % restore graphic context
+	7.11784 div 8 mul 
+} bind def
+
+/jumpTextLine { 
+    textheight 1.25 mul                    % gets textheight and adds 1/4
+    0 exch neg rmoveto                     % move down only in Y axis
+} bind def
+
+/nshow {
+	10 14 string cvrs show
+} def
+
+
+100 100 translate     % установить начало координат
+
+
+0.4 setlinewidth	% установить толщину линии по стандарту для сплошной основной
+
+/parab {dup dup dup mul 100 div} def
+newpath
+-100 0 100 0 moveto lineto stroke
+
+newpath
+0 -100 0 100 moveto lineto stroke
+
+newpath
+-100 
+parab 
+moveto
+-99 1 100 {
+	parab 
+	lineto
+} for
+stroke
+
+0 0 moveto
+/Times-Roman findfont
+8 scalefont
+setfont
+(S) show
+
+
+
+currentfont
+0.5 scalefont
+setfont
+0 -2 rmoveto
+(0) show
+
+%/Times-Roman findfont
+currentfont
+2 scalefont
+setfont
+(R) show
+textheight nshow
+
+%/showbottom {currentfont 0.5 scalefont }
+
+%%EOF

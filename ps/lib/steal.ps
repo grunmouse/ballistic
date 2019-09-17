@@ -1,0 +1,105 @@
+%Инициализируем массив под стек и переменную для хранения его вершины
+/steal_stack 26 array def
+/steal_stack_top 0 def
+%кладём в нулевую позицию стека адрес текущей папки
+
+steal_stack  0 (./) put
+
+1 1 25 {
+	steal_stack exch () put
+} for
+
+%[строка]
+/steal_push {
+	%инкрементируем вершину стека
+	/steal_stack_top steal_stack_top 1 add def
+	%в этот момент стек должен вернуться в исходное состояние
+	%[строка]
+	steal_stack exch steal_stack_top exch put
+} def
+%[]
+
+%[]
+/steal_pop {
+	%затираем значение в вершине стека
+	steal_stack steal_stack_top () put
+	%декрементируем вершину стека
+	/steal_stack_top steal_stack_top 1 sub def
+} def
+%[]
+
+%[]
+/steal_top {
+	steal_stack steal_stack_top get
+} def
+%[строка с вершины]
+
+%[]
+/steal_join {
+	/steal_path 256 string def
+	steal_path
+	0
+	%[steal_path, позиция]
+	0 1 25 {
+		%[steal_path, позиция, индекс]
+		steal_stack exch get
+		%[steal_path, позиция, строка]
+		str_append
+		%[steal_path, позиция]
+	} for
+} def
+%[steal_path, позиция]
+
+%[строка_назначения, позиция, строка]
+/str_append {
+	2 index 
+	%[строка_назначения, позиция, строка, строка_назначения]
+	4 1 roll
+	%[строка_назначения, строка_назначения, позиция, строка]
+	dup length
+	%[строка_назначения, строка_назначения, позиция, строка, её длина]
+	2 index add
+	%[строка_назначения, строка_назначения, позиция, строка, новая позиция]
+	4 1 roll
+	%[строка_назначения, новая позиция, строка_назначения, позиция, строка]
+	putinterval
+	%[строка_назначения, новая позиция]
+} bind def
+%[финальная строка, позиция]
+
+%[строка, длина]
+/str_cut{
+	0 exch
+	getinterval
+} def
+%[обрезанная строка]
+
+%[базовый путь, путь файла]
+/steal {
+	exch
+	%[путь файла, базовый путь]
+	steal_push
+	%[путь файла]
+	stealfile
+	
+	steal_pop
+} def
+
+%[путь файла]
+/stealfile {
+	steal_join
+	%[путь файла, steal_path, позиция]
+	3 -1 roll
+	%[steal_path, позиция, путь файла]
+	str_append
+	str_cut
+	%[полный путь файла]
+
+	run
+} def
+
+%[базовый путь]
+/ftealfolder {
+	(index.ps)
+	steal
+} def

@@ -1,0 +1,110 @@
+\subsection{Восходящий участок}
+\subsubsection{Свойства параметров и функций}
+$$ V_z \geq 0; $$
+
+$$-V_\downarrow < V_{a,z} < V_\downarrow;$$
+
+$$U_z = \frac{V_z - V_{a,z}}{V_\downarrow} >1.$$
+
+\subsubsection{Расчёт скорости}
+
+$$\frac{dU_z}{ U_{z}^2 + 1} = - ds;$$
+
+$$\int \frac{dU_z}{ U_{z}^2 + 1} = -\int ds;$$
+
+$$\int \frac{dU_z}{ U_{z}^2 + 1} = arctg U_z + C;$$
+
+$$-\int ds = - s + C;$$
+
+$$\arctg{U_z} = - s + C;$$
+
+\paragraph{Вводим функции:}
+$$\fnu{V_z} = \arctg U_z;$$
+
+$$\Rightarrow U_z = \tg \nu.$$
+
+$$- \frac{\pi}{2} < \nu < \frac{\pi}{2}.$$
+
+\paragraph{Поиск константы:}
+
+$$t_0=0;$$
+
+$$s_0=0$$
+
+$$\arctg U_{z,0} = C;$$
+
+$$C = \fnu{V_{z,0}};$$
+
+Обозначим:
+$$\nu_{0} = \fnu{V_{z,0}};$$
+
+$$\nu = \nu_{0} - s;$$
+
+\paragraph{Расчётные формулы:}
+$$\nu_{0} = \arctg U_{z,0} = \arctg \brkt{ \frac{V_{z,0} - V_{a,z}}{V_{\downarrow}} };$$
+
+$$U_z = \tg \nu = \tg \brkt{ \nu_{0} - s };$$
+
+$$V_z = U_z V_\downarrow + V_{a,z} = \tg \brkt{ \nu_{0} - s } V_\downarrow + V_{a,z}.$$
+
+
+\subsubsection{Расчёт высоты}
+\paragraph{Интегрирование:}
+
+$$V_z = U_z V_\downarrow + V_{a,z};$$
+
+$$U_z = \tg \nu;$$
+
+$$\Rightarrow V_z = V_\downarrow \tg \nu + V_{a,z};$$
+
+$$\nu = \nu_{0} + s;$$
+
+$$t = \tau \brkt{ \nu_{0} - \nu_{z} };$$
+
+$$dt = -\tau d\nu_{z};$$
+
+$$z = \int V_z dt;$$
+
+$$z = \int \brkt{ V_\downarrow \tg \nu + V_{a,z} } dt;$$
+
+$$z = V_\downarrow \int \tg \nu dt + V_{a,z}t;$$
+
+$$\int tg \nu dt = -\tau \int \tg \nu d nu_z = \tau \ln \abs{\cos \nu } + C;$$
+
+$$cos \nu > 0 \Rightarrow ln \abs{  \cos \nu } = \ln \brkt{  cos \nu };$$
+
+$$z = \chi \ln \brkt{ \cos \nu } +  V_{a,z}t + C.$$
+
+\paragraph{Поиск константы:}
+
+$$t=0;$$
+
+$$z_0 = \chi \ln \brkt{  \cos \nu_{0} } + C;$$
+
+$$C = z_0 - \chi \ln \brkt{  \cos \nu_{0} }.$$
+
+\paragraph{Подстановка:}
+
+$$z = \chi \ln \brkt{  \cos \nu } +  V_{a,z}t + z_0 - \chi \ln \brkt{  \cos \nu_{0} };$$
+
+$$\boxed{
+z = \chi \ln \brkt{  \frac{\cos \nu}{\cos \nu_{0}}  }  +  V_{a,z}t + z_0.
+}$$
+
+\subsubsection{Расчёт максимальной высоты}
+
+$$V_{z,max}=0;$$
+
+$$\nu=\nu(0);$$
+
+$$U_z(0) V_\downarrow + V_{a,z} = 0;$$
+
+$$U_z(0)=-\frac{V_{a,z}}{V_\downarrow};$$
+
+$$\nu(0)=-\arctg \frac{V_{a,z}}{V_\downarrow};$$
+
+$$t_{max}= \tau \brkt{ \nu_{0} - \nu(0) }.$$
+
+$$s_{max} = \nu_{0} - \fnu{0}.$$
+
+$$z_{max} = \chi \ln \brkt{ \frac{cos \nu(0)}{cos \nu_{0}} } + V_{a,z}t_{max} + z_0.$$%
