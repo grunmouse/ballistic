@@ -16,6 +16,20 @@ function clearTMP(path, recursive){
 	})))
 }
 
+function makeView(up){
+	return `
+\documentclass[a4paper]{article}
+\usepackage{steal}
+\steal{${up}}{configs/article}
+
+\begin{document}
+
+\stealcurrent
+
+\end{document}	
+`
+}
+
 var eng = new Engine({
 	'-make-folder':function(){
 		var path = this.pop();
